@@ -1,4 +1,7 @@
 #include <iostream>
+
+using namespace std;
+
 int main() {
     int a = 45, b = 5;
     a = a*b;
