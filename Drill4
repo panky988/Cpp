@@ -1,0 +1,78 @@
+#include "std_lib_facilities.h"
+#include <iostream>
+
+int main()
+{
+vector <double> v;
+string mertek;
+double s;
+double osszeg=0, min_max_osszeg=0, min, max;
+const double m_cm = 100, in_cm = 2.54, ft_in = 12;
+
+while (cin >> s >> mertek && s != '|'){
+	if (mertek == "m"){
+		s = s;
+	}
+	    else if (mertek == "cm"){
+            s = s/m_cm;
+        }
+        else if (mertek == "in"){
+            s = in_cm*s/m_cm;
+        }
+        else if(mertek == "ft"){
+            s = ft_in*in_cm*s/m_cm;
+        }
+        else{
+        cout << "Nem megengedett mertekegyseg!" << "\n";
+        }
+for (int i = 0; i < v.size(); i++){
+    if (s == v[i])
+        cout << "Ilyen szám már van a vektorban" << "\n";
+    else if (s > v[i] && s-v[i] < 1.0/100)
+        cout << "A szám majdnem ugyanakkora: " << v[i] << "\n";
+    else if( s < v[i] && v[i]-s < 1.0/100)
+        cout << "A szám majdnem ugyanakkora: " << v[i] << "\n" ;
+}
+osszeg += s;
+v.push_back(s);
+
+double legkisebb = v[0], legnagyobb = v[0];
+
+for ( int i = 0 ; i < v.size(); i++){
+    if (v[i] < legkisebb) legkisebb = v[i];
+    if (v[i] > legnagyobb) legnagyobb = v[i];
+}
+
+min = legkisebb;
+max = legnagyobb;
+
+double min = v[0], max = v[0];
+        for ( int i = 0; i < v.size(); i++){
+            if (v[i] < min) min = v[i];
+            if (v[i] > max) max = v[i];
+        }
+        cout << "legkisebb: " << min << "m" << "\n";
+        cout << "legnagyobb: "  << max << "m" << "\n";
+        cout << "\n";
+
+if (s == legkisebb)
+    cout << s << "m" << "Ez az  eddigi legkisebb szam" << "\n";
+if (s == legnagyobb);
+    cout << s << "m" << "Ez az eddigi legnagyobb szam" << "\n";
+
+min_max_osszeg = legkisebb + legnagyobb;
+}
+
+cout << "\n";
+cout << "legkisebb: " << min << "m" << "\n";
+cout << "legnagyobb: " << max << "m" << "\n";
+cout << "Össszes szam osszege: " << osszeg << "m" << "\n444";
+cout << "min es max osszege: " << min_max_osszeg << "m" << "\n";
+sort (v);
+cout << "\n";
+
+for (int i = 0; i < v.size(); i++){
+    cout << v[i] << "m" << " ";
+}
+return 0;
+}
